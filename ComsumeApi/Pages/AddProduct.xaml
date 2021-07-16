@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ComsumeApi.Pages.AddProduct">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="AliceBlue" 
+                     Padding="10">
+
+            <Entry x:Name="id" Margin="0" FontSize="1" IsVisible="false"
+                   HorizontalOptions="FillAndExpand"/>
+
+            <Label Text="Product Name:" TextColor="Black" Margin="2"/>
+            <Entry x:Name="name" Margin="2,2,2,5"
+                   HorizontalOptions="FillAndExpand" BackgroundColor="#bfbfbf"/>
+
+            <Label Text="Price" TextColor="Black" Margin="2"/>
+            <Entry x:Name="price" Margin="2,2,2,5"
+                   HorizontalOptions="FillAndExpand" Keyboard="Numeric" BackgroundColor="#bfbfbf"/>
+
+            <Label Text="Quantity" Margin="2" TextColor="Black"/>
+            <Entry x:Name="quantity" Margin="2,2,2,5"
+                   HorizontalOptions="FillAndExpand" Keyboard="Numeric" BackgroundColor="#bfbfbf"/>
+
+            <Label Text="Description" Margin="2" TextColor="Black"/>
+            <Entry x:Name="description" Margin="2,2,2,5"
+                   HorizontalOptions="FillAndExpand" Keyboard="Plain" BackgroundColor="#bfbfbf"/>
+
+            <!--<Label Text="Image" Margin="2" TextColor="Black"/>
+            <Entry Text="{Binding product.Quantity}" Margin="2,2,2,5"
+                   HorizontalOptions="FillAndExpand" Keyboard="Chat" BackgroundColor="#bfbfbf"/>-->
+
+            <!--<Button Text="Add Images" x:Name="image" HorizontalOptions="FillAndExpand"
+                    BackgroundColor="DimGray" TextColor="#fff"
+                    Margin="2" Grid.Column="0" Grid.Row="0" Clicked="Image_OnClicked"/>-->
+            <Grid HorizontalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <ImageButton x:Name="addImage" Grid.Column="1" Grid.Row="0" Margin="2" Source="add_photo_2.png" HeightRequest="80" WidthRequest="80" Aspect="AspectFit" Clicked="Image_OnClicked"/>
+                <ImageButton x:Name="takeImage" Grid.Column="0" Grid.Row="0" Margin="2" Source="photo_camera.png" HeightRequest="80" WidthRequest="80" Aspect="AspectFit" Clicked="TakeImage_OnClicked"/>
+            </Grid>
+            <Image x:Name="disImage" Margin="2" Aspect="AspectFit" WidthRequest="100" HeightRequest="100" HorizontalOptions="CenterAndExpand"/>
+            <!--<Label Text="{Binding lblInfo}" TextColor="Black" Margin="2,2,2,5"/>-->
+
+            <Grid HorizontalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Text="SAVE" Clicked="BtnSave_OnClicked" x:Name="btnSave" HorizontalOptions="FillAndExpand"
+                        BackgroundColor="#ff6633" TextColor="#fff"
+                        Margin="2" Grid.Column="0" Grid.Row="0" Command="{Binding btnSaveProduct}"/>
+
+                <Button Text="CLEAR" x:Name="btnClear" HorizontalOptions="FillAndExpand" Clicked="BtnClear_OnClicked"
+                        BackgroundColor="#bfbfbf" TextColor="#fff"
+                        Margin="2" Grid.Column="1" Grid.Row="0" Command="{Binding btnClearProduct}"/>
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

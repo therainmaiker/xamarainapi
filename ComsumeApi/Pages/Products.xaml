@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ComsumeApi.Pages.Products">
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" BackgroundColor="AliceBlue" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <ListView x:Name="lstProduct" ItemSelected="LstProduct_OnItemSelected"  ItemsSource="{Binding lstProduct}"
+                      BackgroundColor="Transparent" HasUnevenRows="True"
+                      RowHeight="100" SeparatorColor="Black" SeparatorVisibility="Default"
+                      Grid.Row="0" Grid.Column="0" Margin="2" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="8*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button BackgroundColor="#fff" TextColor="#eb3449"
+                                        HorizontalOptions="Center" VerticalOptions="FillAndExpand"
+                                        Grid.Column="2" x:Name="btnDeleteProduct" 
+                                        CommandParameter="{Binding Id}" Text="X" FontSize="20"/>
+                                <StackLayout HorizontalOptions="FillAndExpand" Margin="0"
+                                             VerticalOptions="StartAndExpand" Grid.Column="1">
+
+                                    <StackLayout Margin="1" Orientation="Horizontal"
+                                                 HorizontalOptions="FillAndExpand"
+                                                 VerticalOptions="Start">
+                                        <Label TextColor="Black" Text="Product: " Margin="1" />
+                                        <Label TextColor="Black" Text="{Binding Name }" VerticalTextAlignment="Center"
+                                               FontAttributes="Bold"
+                                               HorizontalOptions="StartAndExpand"/>
+
+                                    </StackLayout>
+
+                                    <StackLayout Margin="1" Orientation="Horizontal"
+                                                 HorizontalOptions="FillAndExpand"
+                                                 VerticalOptions="Start">
+                                        <Label TextColor="Black" Text="Price: " Margin="1" />
+                                        <Label TextColor="Black" Text="{Binding Price}" VerticalTextAlignment="Center"
+                                               FontAttributes="Bold"
+                                               HorizontalOptions="StartAndExpand"/>
+                                    </StackLayout>
+
+                                    <StackLayout Margin="1" Orientation="Horizontal"
+                                                 HorizontalOptions="FillAndExpand"
+                                                 VerticalOptions="Start">
+                                        <Label TextColor="Black" Text="Description: " Margin="1" />
+                                        <Label TextColor="Black" Text="{Binding ShortDescription}" VerticalTextAlignment="Center"
+                                               FontAttributes="Bold"
+                                               HorizontalOptions="StartAndExpand"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal"
+                                                 HorizontalOptions="FillAndExpand"
+                                                 VerticalOptions="Start" Margin="1,1,1,3">
+                                        <Label TextColor="Black" Text="Qty: " Margin="1" />
+                                        <Label TextColor="Black" Text="{Binding Quantity}" VerticalTextAlignment="Center"
+                                               FontAttributes="Bold"
+                                               HorizontalOptions="StartAndExpand"/>
+                                    </StackLayout>
+
+                                </StackLayout>
+                                <Image Grid.Column="0" Source="{Binding Photo}" Aspect="Fill" HeightRequest="0"/>
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Label x:Name="lblInfo" TextColor="Black" Text="{Binding lblInfo}" Grid.Row="1" Grid.Column="0"
+                   Margin="2"/>
+            <Button x:Name="btnAddProduct" Text="Add New Product"  Margin="2" Clicked="BtnAddProduct_OnClicked"
+                    Grid.Row="2" Grid.Column="0" BackgroundColor="#ff6633" TextColor="#fff"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
